@@ -85,6 +85,19 @@ function renderFooter() {
     tdE1.textContent = totalOfTotal;
     trTotal.appendChild(tdE1);
 }
+NewBranch.addEventListener('submit', function (event) {
+    event.preventDefault();
+    var LocationValue = event.target.Location.value;
+    var MinCstValue = event.target.MinCst.value;
+    var MaxCstValue = event.target.MaxCst.value;
+    var AvgCustValue = event.target.AvgCust.value;
+    var Tfooter = document.getElementById("Tfooter");
+    Tfooter.parentNode.removeChild(Tfooter);
+    var newshop = new Branch(LocationValue, MinCstValue, MaxCstValue, AvgCustValue);
+    newshop.getAvgCookiesEachHour();
+    newshop.showResult();
+    renderFooter()
+})
 renderHead()
 renderMain()
 renderFooter()
